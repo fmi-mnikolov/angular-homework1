@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "firstName": "Mario",
+      "lastName": "Mario",
+      "email": "mario.nikolov1501@gmail.com",
+      "username": "marionikolov",
+      "password": "MarioNikolov",
+      "role": "2",
+      "profilePicture": "https://i.natgeofe.com/k/271050d8-1821-49b8-bf0b-3a4a72b6384a/obama-portrait__4x3.jpg",
+      "status": true,
+      "datePublished": 1683724432114,
+      "id": 1
+    }
+  ],
+  "recipes": []
+}

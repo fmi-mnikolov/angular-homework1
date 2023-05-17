@@ -1,0 +1,38 @@
+<div class="navigation-bar-container">
+    <div class="navigation-bar"
+         [class.navigation-collapsed]="!this.isExpanded"
+         [class.navigation-expanded]="this.isExpanded"     
+    >
+        <img class="navigation-image" src="/assets/navigation-icon.png" (click)="changeExpansion()"/>
+
+        <div class="routes" [class.routes-collapsed]="!isExpanded" *ngIf="!isExpanded">
+            <div class="home" (click)="home()">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"class="home-icon">
+            </div>
+            <div class="login"(click)="login()" *ngIf="!isLoggedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/5509/5509636.png" class="login-icon">
+            </div>
+            <div class="register" (click)="register()" *ngIf="!isLoggedIn">
+                <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/editing-user-action/new-registration-icon.png"class="register-icon">
+            </div>
+            <div class="recipes" (click)="recipes()" *ngIf="isLoggedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/2729/2729063.png" class="recipes-icon">
+            </div>
+            <div class="logout" (click)="logout()" *ngIf="isLoggedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/126/126467.png"class="logout-icon">
+            </div>
+            <div class="admin-panel" (click)="adminPanel()" *ngIf="isLoggedIn && isAdmin">
+                <img src="https://cdn-icons-png.flaticon.com/512/3429/3429924.png" class="admin-panel-icon">
+            </div>
+        </div>
+
+        <div class="routes" [class.routes-expanded]="isExpanded" *ngIf="isExpanded">
+            <a routerLink="/home">Home</a>
+            <a routerLink="/login" *ngIf="!isLoggedIn">Login</a>
+            <a routerLink="/register" *ngIf="!isLoggedIn">Register</a>
+            <a routerLink="/recipes" *ngIf="isLoggedIn">Recipes</a>
+            <a routerLink="/logout" *ngIf="isLoggedIn">Logout</a>
+            <a routerLink="/admin" *ngIf="isLoggedIn && isAdmin">Admin Panel</a>
+        </div>
+    </div>
+</div>

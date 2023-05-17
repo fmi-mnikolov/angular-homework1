@@ -1,0 +1,14 @@
+<div class="login-window">
+    <div class="title">Login</div>
+    <div class="credential-container">
+        <label for="email">Username/Email</label>
+        <input type="text" (keyup.enter)="login()" [(ngModel)]="credential" placeholder="Username/Email"/>
+    </div>
+    <div class="password-container">
+        <label for="password">Password</label>
+        <input type="password" (keyup.enter)="login()" [(ngModel)]="user.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" placeholder="Password"/>
+    </div>
+    <div class="button-container">
+        <button class="login-button" (click)="login()">Login</button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="register-window">
+    <div class="title">Sign Up</div>
+    <div class="register-form">
+        <div class="name-container">
+            <div class="first-name">
+                <label for="firstName">First Name</label>
+                <input type="text" minlength="2" [(ngModel)]="user.firstName" placeholder="First Name" />
+            </div>
+            <div class="last-name">
+                <label for="lastName">Last Name</label>
+                <input type="text" minlength="2" [(ngModel)]="user.lastName" placeholder="Last Name" />
+            </div>
+        </div>
+        <div class="email-container">
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="user.email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="Email" />
+        </div>
+        <div class="username-container">
+            <label for="username">Username</label>
+            <input type="text" [(ngModel)]="user.username" pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
+                placeholder="Username" />
+        </div>
+        <div class="password-container">
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="user.password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" placeholder="Password" />
+        </div>
+        <div class="role-container">
+            <label for="role">Role</label>
+            <select name="roles" id="roles" [(ngModel)]="user.role" disabled>
+                <option value="0">Cook</option>
+                <option value="1">Moderator</option>
+                <option value="2">Admin</option>
+            </select>
+        </div>
+        <div class="image-container">
+            <label for="image">Image</label>
+            <input type="url" [(ngModel)]="user.profilePicture" />
+            <img class="register-image-preview" src="{{getImageUrl()}}" />
+        </div>
+        <div class="status-container">
+            <label for="status">Status</label>
+            <input type="checkbox" [(ngModel)]="user.status">
+        </div>
+        <div class="creation-date-container">
+            <label for="date">Creation Date</label>
+            <input type="datetime" [ngModel]="user.datePublished" disabled>
+        </div>
+        <div class="button-container">
+            <button class="login-button" (click)="register()">Register</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+$navigation-color: #919191
+$page_height: 100vh
+
+.navigation-bar-container
+    display: flex
+    flex-direction: column
+
+.navigation-collapsed
+    width: 50px
+    *
+        display: hidden
+
+.navigation-expanded
+    width: 300px
+    *
+        display: show
+
+.navigation-image
+    width: 50px
+    height: auto
+
+.navigation-bar
+    display: flex
+    flex-direction: column
+    background: $navigation-color
+    justify-content: flex-start
+    align-items: flex-start
+    height: $page_height
+
+.routes
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-content: center
+
+.register-icon, .login-icon, .home-icon, .recipes-icon, .logout-icon, .admin-panel-icon
+    width: 40px
+    margin-left: 5px
+
+.home, .login, .register, .recipes, .logout, .admin-panel
+    margin-bottom: 10px
+
+.home:hover, .login:hover, .register:hover, .recipes:hover, .logout:hover, .admin-panel:hover
+    cursor: pointer
+
+a
+    margin-bottom: 10px
+    font-size: 30px
+
+a:link, a:visited
+    color: black
+
+a:hover, a:active
+    color: #d9d9d9
