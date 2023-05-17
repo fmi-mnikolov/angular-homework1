@@ -1,1 +1,5 @@
-<p>recipes works!</p>
+<div class="recipes-window">
+    <div class="recipe" *ngFor="let recipe of recipes">
+        <cr-recipe [recipe]="recipe"></cr-recipe>
+    </div>
+</div>

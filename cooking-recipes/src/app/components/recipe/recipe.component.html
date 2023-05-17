@@ -1,6 +1,14 @@
 <div class="recipe-window">
-    <div class="overlay"></div>
-    <div class="recipe-window">
-        
+    <div class="overlay" [class.overlay-shown]='isExpanded' (click)="isExpanded=false"></div>
+    <div class="recipe-window" [class.view-is-expanded]="isExpanded" (click)="isExpanded=true">
+        <div class="title">
+            <label class="recipe-name-label">Title</label>
+            <input type="text" class="recipe-title" [(ngModel)]="recipe.name" [disabled]="!isAdmin()">
+        </div>
+        <div class="author">
+            <label class="recipe-author-label">Author</label>
+            <input type="text" class="recipe-author" [ngModel]="author" [disabled]="!isAdmin()">
+        </div>
+
     </div>
 </div>

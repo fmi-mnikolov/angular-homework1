@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { UserDTO } from 'src/app/models/user-dto';
 import { LoginService } from 'src/app/services/login-service/login.service';
 import { UserService } from 'src/app/services/user-service/user.service';
+import { NotificationService } from '../notification/notification-service/notification.service';
 
 @Component({
   selector: 'cr-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
   constructor(
     private userService: UserService,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private notificationService: NotificationService
   ) {}
 
   private verifyInput() {
@@ -39,32 +41,44 @@ export class LoginComponent {
     this.userService.getUsers().subscribe((x) => {
       exists = x.find((y) => {
         if (this.user.email) {
-          if (this.user.email == y.email && this.user.password == y.password) {
-            return true;
+          if (
+            this.user.email == y?.email &&
+            this.user.password == y?.password
+          ) {
+            return y;
           }
         }
 
         if (this.user.username) {
           if (
-            this.user.username == y.username &&
-            this.user.password == y.password
+            this.user.username == y?.username &&
+            this.user.password == y?.password
           ) {
-            return true;
+            return y;
           }
         }
 
-        return false;
+        return undefined;
       });
+      if (exists?.id) {
+        this.notificationService.pushNotification(
+          'Login Alert',
+          'Logged in successfully',
+          true
+        );
+        this.loginService.addUser(exists);
+        this.user = new User();
+        this.credential = '';
+        this.router.navigate(['/home']);
+      } else {
+        console.log('User does not exist');
+        this.notificationService.pushNotification(
+          'Login Alert',
+          'No such user exists.',
+          false
+        );
+        return;
+      }
     });
-
-    if (exists) {
-      this.loginService.addUser(exists);
-      this.user = new User();
-      this.credential = '';
-      this.router.navigate(['/home']);
-    } else {
-      console.log('User does not exist');
-      return;
-    }
   }
 }

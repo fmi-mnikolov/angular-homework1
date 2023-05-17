@@ -11,7 +11,33 @@
       "status": true,
       "datePublished": 1683724432114,
       "id": 1
+    },
+    {
+      "firstName": "Test",
+      "lastName": "User",
+      "email": "testingUser@gmail.com",
+      "username": "testinguser",
+      "password": "testinguser",
+      "role": 0,
+      "profilePicture": "https://cdn.britannica.com/05/88205-050-9EEA563C/Bigmouth-buffalo-fish.jpg",
+      "status": true,
+      "datePublished": 1684320849986,
+      "id": 2
     }
   ],
-  "recipes": []
+  "recipes": [
+    {
+      "id": 1,
+      "name": "RecipeTest",
+      "authorId": 1,
+      "text": "Lorem ipsum...................",
+      "tags": [
+        "recipe",
+        "test"
+      ],
+      "image": "hahaha",
+      "status": true,
+      "datePublished": 0
+    }
+  ]
 }

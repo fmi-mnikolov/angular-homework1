@@ -5,6 +5,7 @@
     z-index: 0
 
 .overlay
+    display: none
     background: rgba(0,0,0,0.6)
     position: absolute
     width: 100vw
@@ -14,6 +15,24 @@
 .recipe-window
     background: white
     position: absolute
+    width: 30vw
+    height: 30vh
+    z-index: 2
+
+.overlay-shown
+    display: flex
+
+.view-is-expanded
     width: 80vw
     height: 90vh
-    z-index: 2
+
+label
+    font-size: 20px
+    font-style: italic
+    margin-right: 30px
+
+input
+    width: 60%
+    font-size: 17px
+    font-style: italic
+    height: 25px

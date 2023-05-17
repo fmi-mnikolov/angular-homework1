@@ -22,6 +22,9 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { LoginGuard } from './services/login-guard/login.guard';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { RecipeSummaryComponent } from './components/recipe-summary/recipe-summary.component';
+import { Notification } from './components/notification/models/notification';
+import { NotificationComponent } from './components/notification/notification/notification.component';
+import { NotificationQueueComponent } from './components/notification/notification-queue/notification-queue.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { RecipeSummaryComponent } from './components/recipe-summary/recipe-summa
     AdminPanelComponent,
     RecipeComponent,
     RecipeSummaryComponent,
+    NotificationComponent,
+    NotificationQueueComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,10 @@ export class LoginService {
   }
 
   isAdmin() {
-    if (sessionStorage.getItem('role')) {
+    if (
+      sessionStorage.getItem('role') &&
+      sessionStorage.getItem('role') == '2'
+    ) {
       return true;
     }
     return false;

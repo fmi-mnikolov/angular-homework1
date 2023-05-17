@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
 import { tap, catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { LoginService } from 'src/app/services/login-service/login.service';
+import { NotificationService } from '../notification/notification-service/notification.service';
 
 @Component({
   selector: 'cr-registration',
@@ -20,7 +21,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -38,10 +40,20 @@ export class RegistrationComponent implements OnInit {
         tap((data) => {
           this.loginService.addUser(data);
           this.user = new User();
+          this.notificationService.pushNotification(
+            'Registration Alert',
+            'Registered successfully',
+            true
+          );
           this.router.navigate(['/home']);
         }),
         catchError((err) => {
           console.log('Cannot register user');
+          this.notificationService.pushNotification(
+            'Registration Alert',
+            'Registered failed',
+            false
+          );
           return of();
         })
       )

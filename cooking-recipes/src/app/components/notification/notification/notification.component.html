@@ -1,0 +1,9 @@
+<div *ngIf="notification" class="notification"
+    [class.success-notification]="notification.success"
+    [class.fail-notification]="!notification.success" [class.notification-show]="visible"
+    [class.notification-hide]="!visible">
+    <div class="notification-content">
+        <div class="notification-title">{{notification.title}}</div>
+        <div class="notification-message">{{notification.message}}</div>
+    </div>
+</div>
